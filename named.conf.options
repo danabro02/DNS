@@ -21,4 +21,14 @@ options {
 	dnssec-validation yes;
 	listen-on { any; };
 	listen-on-v6 { none; };
+	
+
+
+};
+
+acl "redes_permitidas" {
+	
+127.0.0.0/8;
+192.168.57.0/24;
+
 };
