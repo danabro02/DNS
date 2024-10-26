@@ -4,9 +4,10 @@ $TTL 86400
                     3600       ; Refresh
                     1800       ; Retry
                     604800     ; Expire
-                    86400 )    ; Minimum TTL
+                    7200 )    ; Minimum TTL
 
     IN  NS      tierra.sistema.test.
 
 tierra  IN  A   192.168.57.103
 venus   IN  A   192.168.57.102
+
