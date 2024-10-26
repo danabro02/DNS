@@ -15,6 +15,13 @@ Vagrant.configure("2") do |config|
     cp /home/vagrant/compartida/db.192.168.57 /etc/bind/db.192.168.57
     cp /home/vagrant/compartida/db.sistema.test /etc/bind/db.sistema.test
 
+    sudo chown bind:bind /etc/bind/db.sistema.test
+    sudo chmod 644 /etc/bind/db.sistema.test
+    sudo chown bind:bind /etc/bind/db.192.168.57
+    sudo chmod 644 /etc/bind/db.192.168.57
+    sudo chmod +x test.sh
+    systemctl restart bind9
+
     SHELL
 
     venus.vm.network "private_network", ip: "192.168.57.102"

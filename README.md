@@ -35,6 +35,30 @@ Windows gráfico o server (imaginario)               marte.sistema.test         
 
 `vagrantfile:` he modificado este archivo para cumplir con lo anteior puesto, creando dos maquinas virtuales con las ips dadas
 
-## ejercicio 3
+## ejercicio 3 (en este ejercicio se ve lo realizado en github y sus subidas paso a paso)
 
 Activa solamente la escucha del servidor para el protocolo IPv4.
+
+Establecer la opción dnssec-validation a yes
+
+Los servidores permitirán las consultas recursivas sólo a los ordenadores en la red 127.0.0.0/8
+y en la red 192.168.57.0/24, para ello utilizarán la opción de listas de control de acceso o acl.
+
+El servidor maestro será tierra.sistema.test y tendrá autoridad sobre la zona directa e inversa.
+
+El servidor esclavo será venus.sistema.test y tendrá como maestro a tierra.sistema.test.
+
+El tiempo en caché de las respuestas negativas de las zonas (directa e inversa) será de dos horas
+(se pone en segundos).
+
+Aquellas consultas que reciba el servidor para la que no está autorizado, deberá reenviarlas
+(forward) al servidor DNS 208.67.222.222 (OpenDNS).
+
+Se configurarán los siguientes alias:
+a. ns1.sistema.test. será un alias de tierra.sistema.test.
+b. ns2.sistema.test. será un alias de venus.sistema.test..
+
+mail.sistema.test. será un alias de marte.sistema.test.
+
+El equipo marte.sistema.test. actuará como servidor de correo del dominio de correo
+sistema.test.
