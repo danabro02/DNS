@@ -62,3 +62,36 @@ mail.sistema.test. será un alias de marte.sistema.test.
 
 El equipo marte.sistema.test. actuará como servidor de correo del dominio de correo
 sistema.test.
+
+## ejercicio 4
+
+Puedes resolver los registros tipo A.
+
+dig A sistema.test
+
+Comprueba que se pueden resolver de forma inversa sus direcciones IP.
+
+dig -x 192.168.57.103
+
+Puedes resolver los alias ns1.sistema.test y ns2.sistema.test.
+
+dig CNAME ns1.sistema.test
+dig CNAME ns2.sistema.test
+
+Realiza la consulta para saber los servidores NS de sistema.test. Debes obtener
+tierra.sistema.test y venus.sistema.test.
+
+dig NS sistema.test
+
+Realiza la consulta para saber los servidores MX de sistema.test.
+
+dig MX sistema.test
+
+Comprueba que se ha realizado la transferencia de la zona entre el servidor DNS maestro y el
+esclavo. Revisa los logs o realiza una consulta del registro AXFR.
+
+dig AXFR sistema.test @192.168.57.102
+
+Comprueba que tanto maestro como esclavo pueden contestar a las mismas preguntas.
+
+dig A sistema.test
